@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 九陶院团队</title>
+  <title>九陶院团队</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="且举世而誉之而不加劝，举世而非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。">
-<meta property="og:type" content="website">
+  <meta name="description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
+<meta property="og:type" content="article">
 <meta property="og:title" content="九陶院团队">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/10/09/原码反码补码/index.html">
 <meta property="og:site_name" content="九陶院团队">
-<meta property="og:description" content="且举世而誉之而不加劝，举世而非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。">
+<meta property="og:description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/EclI3RE.jpg">
+<meta property="og:image" content="https://i.imgur.com/y8zICm6.png">
+<meta property="og:image" content="https://i.imgur.com/SwE5uWP.jpg">
+<meta property="og:image" content="https://i.imgur.com/RS6Aijp.jpg">
+<meta property="og:updated_time" content="2017-10-09T12:53:14.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九陶院团队">
-<meta name="twitter:description" content="且举世而誉之而不加劝，举世而非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。">
+<meta name="twitter:description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
+<meta name="twitter:image" content="https://i.imgur.com/EclI3RE.jpg">
   
     <link rel="alternative" href="/atom.xml" title="九陶院团队" type="application/atom+xml">
   
@@ -147,129 +153,154 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-原码反码补码" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#突发奇想来揣测揣测大师是如何发明补码的</p>
+<p>##写在前面<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸之至。</p>
+<p>#补码是怎么来的？<br><a id="more"></a></p>
+<p>##要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）<br>目前计算机中绝大部分是补码形式来保存数据，只有少数Linux里面的东西是用反码保存的。  </p>
+<p>##要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。<br>无符号的时候1111&nbsp;&nbsp;1111=2^7+2^6+…+2^1+^2^0=255——0到255有256个数字。<br>有符号的时候1111&nbsp;&nbsp;1111取反+1之后<strong>=-1</strong><br>有符号的时候<code>0 _ _ _ _ _ _ _</code> 最大值+127<br>有符号的时候<code>1 _ _ _ _ _ _ _</code> 最小值-128<br>有符号的时候1000&nbsp;&nbsp;0000却表示-128<br>记住这几个数的长相，然后就可以开始了。  </p>
+<p>#要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？<br>用笔计算过的朋友应该发现了，笔可以计算加减法，但是，电脑不可以，电脑只能进行加法运算，所以，我们需要把负数转换成正数，然后进行加法，就可以用加法代替减法，而且，最理想的就是<strong>让表示一对相反数的两个数的二进制码之和为一个值，这个值最好为0，而且用同一种进制，比如：用有符号的二进制，在同一种进制下运算，就可以直接得到答案</strong>这样最方便，但是最开始的原码并不能做到这一点，所以开始升级换代。</p>
+<pre><code>搞定了这两个问题，可以开始了。
+</code></pre><p>#一、原码怎么想到反码的？<br><img src="https://i.imgur.com/EclI3RE.jpg" alt="竖状图">  </p>
+<p>本来按照最开始的表示，从上到下从虚线的分界开始，上面全正，从0到127，下面全负，从-0到-127 。然后发现计算会出大问题，单纯的相加根本无法执行，算出来的根本不是正确值，因为上面说到的，对应关系应该是用某种算法代替原数据，而此处只是两边对称，并没有用。于是，大师脑洞一开，按照下图显示的，全部倒过来，一一对应，就成了反码。  </p>
+<p><img src="https://i.imgur.com/y8zICm6.png" alt="反码"></p>
+<p>反码经过实践的检验，发现他有点坑，两边根本不相等而且刚好相反，而且依旧包含+0和-0，两者浪费了一个位置，必须更新升级。</p>
+<p>#二、反码怎么想到补码的？<br>要根据现有的表找到一种方法，能让表示一对相反数的两个数的二进制码之和为一个值，这个值最好为0 。正常人想到这里都能想到两种办法，一种正向排序，从-1到-128，从上到下。第二种，从-128到-1，也是从上到下。<br>第一种：按照原码的标准排序，连线，明显，无论怎么样，连线两头相加都不可能为0，所以第一种放弃。<br><img src="https://i.imgur.com/SwE5uWP.jpg" alt="错的">  </p>
+<p>第二种：按照最新的想法，也就是凑两边加起来等于一个值，明显可以发现，每条线左右两边绝对值相等的两个数相加之和都为1111&nbsp;&nbsp;1111而且多1，所以，只要把一边取反再加一就可以得到另一边，于是就把左边全体取反加一，就得到了右边，然后再命个名，complement representation ，也就是所谓的补码，补码就诞生啦。</p>
+<p><img src="https://i.imgur.com/RS6Aijp.jpg" alt="对的">    </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/09/原码反码补码/" class="archive-article-date">
-  	<time datetime="2017-10-09T12:53:42.635Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/09/原码反码补码/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/06/Ubuntu安装教程_九陶院/" class="archive-article-date">
-  	<time datetime="2017-10-06T13:06:22.718Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/06/Ubuntu安装教程_九陶院/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">win10+Ubuntu的安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/06/Ubuntu安装教程_九陶院/">win10+Ubuntu的安装</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/06/markdown学习/" class="archive-article-date">
-  	<time datetime="2017-10-06T13:06:22.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/06/hello-world/" class="archive-article-date">
-  	<time datetime="2017-10-06T09:37:23.708Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/06/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -292,8 +323,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

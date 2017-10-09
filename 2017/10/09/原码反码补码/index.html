@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://i.imgur.com/y8zICm6.png">
 <meta property="og:image" content="https://i.imgur.com/SwE5uWP.jpg">
 <meta property="og:image" content="https://i.imgur.com/RS6Aijp.jpg">
-<meta property="og:updated_time" content="2017-10-09T12:57:45.098Z">
+<meta property="og:updated_time" content="2017-10-09T13:11:35.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="突发奇想来揣测揣测大师是如何发明补码的">
 <meta name="twitter:description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
@@ -175,7 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>#突发奇想来揣测揣测大师是如何发明补码的</p>
-<p>##写在前面<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸之至。</p>
+<p>##写在前面<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸之至。如有问题，欢迎指正，邮箱<code>644360964@qq.com</code></p>
 <p>#补码是怎么来的？<br><a id="more"></a></p>
 <p>##要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）<br>目前计算机中绝大部分是补码形式来保存数据，只有少数Linux里面的东西是用反码保存的。  </p>
 <p>##要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。<br>无符号的时候1111&nbsp;&nbsp;1111=2^7+2^6+…+2^1+^2^0=255——0到255有256个数字。<br>有符号的时候1111&nbsp;&nbsp;1111取反+1之后<strong>=-1</strong><br>有符号的时候<code>0 _ _ _ _ _ _ _</code> 最大值+127<br>有符号的时候<code>1 _ _ _ _ _ _ _</code> 最小值-128<br>有符号的时候1000&nbsp;&nbsp;0000却表示-128<br>记住这几个数的长相，然后就可以开始了。  </p>

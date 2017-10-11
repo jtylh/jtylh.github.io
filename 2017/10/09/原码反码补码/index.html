@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>突发奇想来揣测揣测大师是如何发明补码的 | 九陶院团队</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
+  <meta name="description" content="突发奇想来揣测揣测大师是如何发明补码的写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸">
 <meta name="keywords" content="C语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="突发奇想来揣测揣测大师是如何发明补码的">
 <meta property="og:url" content="http://yoursite.com/2017/10/09/原码反码补码/index.html">
 <meta property="og:site_name" content="九陶院团队">
-<meta property="og:description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
+<meta property="og:description" content="突发奇想来揣测揣测大师是如何发明补码的写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/EclI3RE.jpg">
 <meta property="og:image" content="https://i.imgur.com/y8zICm6.png">
 <meta property="og:image" content="https://i.imgur.com/SwE5uWP.jpg">
 <meta property="og:image" content="https://i.imgur.com/RS6Aijp.jpg">
-<meta property="og:updated_time" content="2017-10-09T13:19:28.057Z">
+<meta property="og:updated_time" content="2017-10-11T08:36:47.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="突发奇想来揣测揣测大师是如何发明补码的">
-<meta name="twitter:description" content="#突发奇想来揣测揣测大师是如何发明补码的 ##写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷">
+<meta name="twitter:description" content="突发奇想来揣测揣测大师是如何发明补码的写在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸">
 <meta name="twitter:image" content="https://i.imgur.com/EclI3RE.jpg">
   
     <link rel="alternative" href="/atom.xml" title="九陶院团队" type="application/atom+xml">
@@ -174,18 +174,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#突发奇想来揣测揣测大师是如何发明补码的</p>
-<p>##写在前面<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸之至。如有问题，欢迎指正，邮箱<code>644360964@qq.com</code></p>
-<p>#补码是怎么来的？<br><a id="more"></a></p>
-<p>##要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）<br>目前计算机中绝大部分是补码形式来保存数据，只有少数Linux里面的东西是用反码保存的。  </p>
-<p>##要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。<br>无符号的时候1111&nbsp;&nbsp;1111=2^7+2^6+…+2^1+2^0=255  ——0到255有256个数字。<br>有符号的时候1111&nbsp;&nbsp;1111取反+1之后<strong>=-1</strong><br>有符号的时候<code>0 _ _ _ _ _ _ _</code> 最大值+127<br>有符号的时候<code>1 _ _ _ _ _ _ _</code> 最小值-128<br>有符号的时候1000&nbsp;&nbsp;0000却表示-128<br>记住这几个数的长相，然后就可以开始了。  </p>
-<p>#要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？<br>用笔计算过的朋友应该发现了，笔可以计算加减法，但是，电脑不可以，电脑只能进行加法运算，所以，我们需要把负数转换成正数，然后进行加法，就可以用加法代替减法，而且，最理想的就是<strong>让表示一对相反数的两个数的二进制码之和为一个值，这个值最好为0，而且用同一种进制，比如：用有符号的二进制，在同一种进制下运算，就可以直接得到答案</strong>这样最方便，但是最开始的原码并不能做到这一点，所以开始升级换代。</p>
+        <h1 id="突发奇想来揣测揣测大师是如何发明补码的"><a href="#突发奇想来揣测揣测大师是如何发明补码的" class="headerlink" title="突发奇想来揣测揣测大师是如何发明补码的"></a>突发奇想来揣测揣测大师是如何发明补码的</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近学C语言学的云里雾里，对原码反码补码是一窍不通，除了知道什么是原码反码补码，其他的一点都不知道，于是作者静下心来花时间揣测了一下大师是如何思考发明补码的，若有所获，于是决定把想法记录下来，希望能帮助到其他同样思考过这个问题的人，纯属猜测，毫无史实依据，如有雷同，荣幸之至。如有问题，欢迎指正，邮箱<code>644360964@qq.com</code></p>
+<h1 id="补码是怎么来的？"><a href="#补码是怎么来的？" class="headerlink" title="补码是怎么来的？"></a>补码是怎么来的？</h1><a id="more"></a>
+<h2 id="要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）"><a href="#要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）" class="headerlink" title="要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）"></a>要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）</h2><p>目前计算机中绝大部分是补码形式来保存数据，只有少数Linux里面的东西是用反码保存的。  </p>
+<h2 id="要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。"><a href="#要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。" class="headerlink" title="要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。"></a>要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。</h2><p>无符号的时候1111&nbsp;&nbsp;1111=2^7+2^6+…+2^1+2^0=255  ——0到255有256个数字。<br>有符号的时候1111&nbsp;&nbsp;1111取反+1之后<strong>=-1</strong><br>有符号的时候<code>0 _ _ _ _ _ _ _</code> 最大值+127<br>有符号的时候<code>1 _ _ _ _ _ _ _</code> 最小值-128<br>有符号的时候1000&nbsp;&nbsp;0000却表示-128<br>记住这几个数的长相，然后就可以开始了。  </p>
+<h1 id="要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？"><a href="#要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？" class="headerlink" title="要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？"></a>要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？</h1><p>用笔计算过的朋友应该发现了，笔可以计算加减法，但是，电脑不可以，电脑只能进行加法运算，所以，我们需要把负数转换成正数，然后进行加法，就可以用加法代替减法，而且，最理想的就是<strong>让表示一对相反数的两个数的二进制码之和为一个值，这个值最好为0，而且用同一种进制，比如：用有符号的二进制，在同一种进制下运算，就可以直接得到答案</strong>这样最方便，但是最开始的原码并不能做到这一点，所以开始升级换代。</p>
 <pre><code>搞定了这两个问题，可以开始了。
-</code></pre><p>#一、原码怎么想到反码的？<br><img src="https://i.imgur.com/EclI3RE.jpg" alt="竖状图">  </p>
+</code></pre><h1 id="一、原码怎么想到反码的？"><a href="#一、原码怎么想到反码的？" class="headerlink" title="一、原码怎么想到反码的？"></a>一、原码怎么想到反码的？</h1><p><img src="https://i.imgur.com/EclI3RE.jpg" alt="竖状图">  </p>
 <p>本来按照最开始的表示，从上到下从虚线的分界开始，上面全正，从0到127，下面全负，从-0到-127 。然后发现计算会出大问题，单纯的相加根本无法执行，算出来的根本不是正确值，因为上面说到的，对应关系应该是用某种算法代替原数据，而此处只是两边对称，并没有用。于是，大师脑洞一开，按照下图显示的，全部倒过来，一一对应，就成了反码。  </p>
 <p><img src="https://i.imgur.com/y8zICm6.png" alt="反码"></p>
 <p>反码经过实践的检验，发现他有点坑，两边根本不相等而且刚好相反，而且依旧包含+0和-0，两者浪费了一个位置，必须更新升级。</p>
-<p>#二、反码怎么想到补码的？<br>要根据现有的表找到一种方法，能让表示一对相反数的两个数的二进制码之和为一个值，这个值最好为0 。正常人想到这里都能想到两种办法，一种正向排序，从-1到-128，从上到下。第二种，从-128到-1，也是从上到下。<br>第一种：按照原码的标准排序，连线，明显，无论怎么样，连线两头相加都不可能为0，所以第一种放弃。<br><img src="https://i.imgur.com/SwE5uWP.jpg" alt="错的">  </p>
+<h1 id="二、反码怎么想到补码的？"><a href="#二、反码怎么想到补码的？" class="headerlink" title="二、反码怎么想到补码的？"></a>二、反码怎么想到补码的？</h1><p>要根据现有的表找到一种方法，能让表示一对相反数的两个数的二进制码之和为一个值，这个值最好为0 。正常人想到这里都能想到两种办法，一种正向排序，从-1到-128，从上到下。第二种，从-128到-1，也是从上到下。<br>第一种：按照原码的标准排序，连线，明显，无论怎么样，连线两头相加都不可能为0，所以第一种放弃。<br><img src="https://i.imgur.com/SwE5uWP.jpg" alt="错的">  </p>
 <p>第二种：按照最新的想法，也就是凑两边加起来等于一个值，明显可以发现，每条线左右两边绝对值相等的两个数相加之和都为1111&nbsp;&nbsp;1111而且多1，所以，只要把一边取反再加一就可以得到另一边，于是就把左边全体取反加一，就得到了右边，然后再命个名，complement representation ，也就是所谓的补码，补码就诞生啦。</p>
 <p><img src="https://i.imgur.com/RS6Aijp.jpg" alt="对的">    </p>
 
@@ -300,7 +299,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#突发奇想来揣测揣测大师是如何发明补码的"><span class="toc-number">1.</span> <span class="toc-text">突发奇想来揣测揣测大师是如何发明补码的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-number">1.1.</span> <span class="toc-text">写在前面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补码是怎么来的？"><span class="toc-number">2.</span> <span class="toc-text">补码是怎么来的？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）"><span class="toc-number">2.1.</span> <span class="toc-text">要搞清楚这个问题，首先就要明白计算机里保存的数据全是补码（把整数和0全部当成补码形式，反正都一样）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。"><span class="toc-number">2.2.</span> <span class="toc-text">要搞清楚这个问题，其次就要明白十进制与二进制的转换，这其中有蹊跷。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？"><span class="toc-number">3.</span> <span class="toc-text">要搞清楚这个问题，然后需要明白要这些码能做到什么？为什么要他们？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、原码怎么想到反码的？"><span class="toc-number">4.</span> <span class="toc-text">一、原码怎么想到反码的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、反码怎么想到补码的？"><span class="toc-number">5.</span> <span class="toc-text">二、反码怎么想到补码的？</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -423,11 +422,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: C语言 | 九陶院团队</title>
+  <title>关于char强制转换成int到底是用0还是用1补位的猜想与检验 | 九陶院团队</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="且举世而誉之而不加劝，举世而非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="九陶院团队">
-<meta property="og:url" content="http://yoursite.com/tags/C语言/index.html">
+  <meta name="description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。 先检验一下char型的-3和3在内存中分别怎么表示——用到的函数   void PrintBit(char x)//用于输出char型在内存中的二进制保存值 {     int i=0;     int n=sizeof(char)*CHAR_BIT">
+<meta name="keywords" content="C语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/index.html">
 <meta property="og:site_name" content="九陶院团队">
-<meta property="og:description" content="且举世而誉之而不加劝，举世而非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。">
+<meta property="og:description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。 先检验一下char型的-3和3在内存中分别怎么表示——用到的函数   void PrintBit(char x)//用于输出char型在内存中的二进制保存值 {     int i=0;     int n=sizeof(char)*CHAR_BIT">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/kSg4tuc.png">
+<meta property="og:image" content="https://i.imgur.com/RtjnTHC.png">
+<meta property="og:image" content="https://i.imgur.com/RtjnTHC.png">
+<meta property="og:image" content="https://i.imgur.com/Eb4l4Rm.png">
+<meta property="og:image" content="https://i.imgur.com/BfXX54p.png">
+<meta property="og:updated_time" content="2017-10-18T14:13:05.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="九陶院团队">
-<meta name="twitter:description" content="且举世而誉之而不加劝，举世而非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。">
+<meta name="twitter:title" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验">
+<meta name="twitter:description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。 先检验一下char型的-3和3在内存中分别怎么表示——用到的函数   void PrintBit(char x)//用于输出char型在内存中的二进制保存值 {     int i=0;     int n=sizeof(char)*CHAR_BIT">
+<meta name="twitter:image" content="https://i.imgur.com/kSg4tuc.png">
   
     <link rel="alternative" href="/atom.xml" title="九陶院团队" type="application/atom+xml">
   
@@ -147,36 +155,97 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-关于char强制转换成int到底是用0还是用1补位的猜想与检验" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      关于char强制转换成int到底是用0还是用1补位的猜想与检验
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/" class="archive-article-date">
+
+        
+        <a href="/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/" class="archive-article-date">
   	<time datetime="2017-10-18T14:11:20.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/">关于char强制转换成int到底是用0还是用1补位的猜想与检验</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于char强制转换成int到底是用0还是用1补位的猜想与检验"><a href="#关于char强制转换成int到底是用0还是用1补位的猜想与检验" class="headerlink" title="关于char强制转换成int到底是用0还是用1补位的猜想与检验"></a>关于char强制转换成int到底是用0还是用1补位的猜想与检验</h1><pre><code>最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。
+</code></pre><h3 id="先检验一下char型的-3和3在内存中分别怎么表示"><a href="#先检验一下char型的-3和3在内存中分别怎么表示" class="headerlink" title="先检验一下char型的-3和3在内存中分别怎么表示"></a>先检验一下char型的-3和3在内存中分别怎么表示</h3><p>——用到的函数  </p>
+<pre><code>void PrintBit(char x)//用于输出char型在内存中的二进制保存值
+{
+    int i=0;
+    int n=sizeof(char)*CHAR_BIT;
+    int mask =1&lt;&lt;(n-1);
+    for(i=1;i&lt;=n;i++)
+    {
+        putchar(!(x&amp;mask)?&apos;0&apos;:&apos;1&apos;);
+        x&lt;&lt;=1;
+        if(!(i%CHAR_BIT)&amp;&amp;i&lt;n)
+        {
+            putchar(&apos; &apos;);
+        }
+    }
+}
+void InPrintBit(int x)//用于输出int型在内存中的二进制保存值
+{
+    int i=0;
+    int n=sizeof(int)*CHAR_BIT;
+    int mask =1&lt;&lt;(n-1);
+    for(i=1;i&lt;=n;i++)
+    {
+        putchar(!(x&amp;mask)?&apos;0&apos;:&apos;1&apos;);
+        x&lt;&lt;=1;
+        if(!(i%CHAR_BIT)&amp;&amp;i&lt;n)
+        {
+            putchar(&apos; &apos;);
+        }
+    }
+}
+</code></pre><p>——输出的方式以及结果</p>
+<pre><code>char a=-3,b=3;    
+PrintBit(a);//输出char a的二进制码
+printf(&quot;\n&quot;);
+InPrintBit((int)a);//输出int a的二进制码
+printf(&quot;\n&quot;);
+PrintBit(b);//输出char b的二进制码
+printf(&quot;\n&quot;);
+InPrintBit((int)b);    //输出int b的二进制码
+</code></pre><p><img src="https://i.imgur.com/kSg4tuc.png" alt=""></p>
+<pre><code>从中发现可能负数前面补1正数前面补0，于是我猜想可能与强制转换的类型有关。
+</code></pre><p>——中途发现一件很神奇的事情<br>    <code>unsigned char a=-3</code>是可以定义的，而且可以保存，并不报错，明明说unsigned char不能表示负数的。<br>——更加神奇的是<code>InPrintBit((int)a);</code>再次输出a时前面竟然补0了。<br><img src="https://i.imgur.com/RtjnTHC.png" alt="">  </p>
+<p><strong>百度上说了这么一句话——无论是强制转换或是自动转换，都只是为了本次运算的需要而对变量的数据长度进行的临时性转换，而不改变数据说明时对该变量定义的类型。</strong><br>也就是说可能 编译器运行的时候只是对变量进行拷贝，就像java中的一样，并不是直接用原数据进行计算。<br>换句话说——他只是把原数据提出来，然后按照想要的进行补位，如果原来的定义是unsigned，那么默认他就是无符号的，转换成unsigned int 的时候就会补0。<br>——验证猜想  </p>
+<pre><code>unsigned char a=-3;
+InPrintBit((int)a);
+</code></pre><p><img src="https://i.imgur.com/RtjnTHC.png" alt=""> </p>
+<p>——再多变几次  </p>
+<pre><code>unsigned char a=-3;
+InPrintBit((int)a);
+printf(&quot;\n&quot;);
+PrintBit((char)((int)a));//由unsigned char 变成int再变回char 
+printf(&quot;\n&quot;);
+PrintBit(a);
+</code></pre><p><img src="https://i.imgur.com/Eb4l4Rm.png" alt=""><br>毫无影响原来的值。</p>
+<p>——最终猜想，值一直都是那个值，变化是根据原来的值的类型名来进行的变化。<br>——最终验证  </p>
+<pre><code>char a=-3;
+printf(&quot;\n&quot;);
+InPrintBit((unsigned int)((unsigned short int)a));  
+</code></pre><p><img src="https://i.imgur.com/BfXX54p.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="由最终验证明显可以看出，强制类型转换补0还是补1取决于原来变量的名字以及自身的值。"><a href="#由最终验证明显可以看出，强制类型转换补0还是补1取决于原来变量的名字以及自身的值。" class="headerlink" title="由最终验证明显可以看出，强制类型转换补0还是补1取决于原来变量的名字以及自身的值。"></a>由最终验证明显可以看出，强制类型转换补0还是补1取决于原来变量的名字以及自身的值。</h3><p>比如原本的<code>char a=-3</code>，自身是1111_1101如果此时把他转换成<code>unsigned short int</code>，他补的就是1，如果转换成<code>unsigned short int</code>再进一步转换成<code>unsigned int</code>，他补的就是0。<br>如果之前是<code>unsigned char a=-3</code>，他竟然可以通过编译不报错，再次转换的时候编译器直接根据之前的<code>unsigned</code>判定他就是正数，于是直接补0。  </p>
+<p>##写在最后<br>本文毫无科学依据，只有实验依据，如有误，敬请批评指正。邮箱<code>644360964@qq.com</code></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -188,57 +257,130 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/09/原码反码补码/" class="archive-article-date">
-  	<time datetime="2017-10-09T12:53:42.635Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/09/原码反码补码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">突发奇想来揣测揣测大师是如何发明补码的</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/09/原码反码补码/">突发奇想来揣测揣测大师是如何发明补码的</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于char强制转换成int到底是用0还是用1补位的猜想与检验"><span class="toc-number">1.</span> <span class="toc-text">关于char强制转换成int到底是用0还是用1补位的猜想与检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先检验一下char型的-3和3在内存中分别怎么表示"><span class="toc-number">1.0.1.</span> <span class="toc-text">先检验一下char型的-3和3在内存中分别怎么表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.1.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#由最终验证明显可以看出，强制类型转换补0还是补1取决于原来变量的名字以及自身的值。"><span class="toc-number">1.1.1.</span> <span class="toc-text">由最终验证明显可以看出，强制类型转换补0还是补1取决于原来变量的名字以及自身的值。</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/", 
+    sourceId: "关于char强制转换成int到底是用0还是用1补位的猜想与检验",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -261,9 +403,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

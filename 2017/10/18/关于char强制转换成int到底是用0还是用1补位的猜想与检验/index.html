@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>关于char强制转换成int到底是用0还是用1补位的猜想与检验 | 九陶院团队</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。 先检验一下char型的-3和3在内存中分别怎么表示——用到的函数   void PrintBit(char x)//用于输出char型在内存中的二进制保存值 {     int i=0;     int n=sizeof(char)*CHAR_BIT">
+  <meta name="description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。">
 <meta name="keywords" content="C语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验">
 <meta property="og:url" content="http://yoursite.com/2017/10/18/关于char强制转换成int到底是用0还是用1补位的猜想与检验/index.html">
 <meta property="og:site_name" content="九陶院团队">
-<meta property="og:description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。 先检验一下char型的-3和3在内存中分别怎么表示——用到的函数   void PrintBit(char x)//用于输出char型在内存中的二进制保存值 {     int i=0;     int n=sizeof(char)*CHAR_BIT">
+<meta property="og:description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/kSg4tuc.png">
 <meta property="og:image" content="https://i.imgur.com/RtjnTHC.png">
 <meta property="og:image" content="https://i.imgur.com/RtjnTHC.png">
 <meta property="og:image" content="https://i.imgur.com/Eb4l4Rm.png">
 <meta property="og:image" content="https://i.imgur.com/BfXX54p.png">
-<meta property="og:updated_time" content="2017-10-18T14:13:05.934Z">
+<meta property="og:updated_time" content="2017-10-18T14:14:58.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验">
-<meta name="twitter:description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。 先检验一下char型的-3和3在内存中分别怎么表示——用到的函数   void PrintBit(char x)//用于输出char型在内存中的二进制保存值 {     int i=0;     int n=sizeof(char)*CHAR_BIT">
+<meta name="twitter:description" content="关于char强制转换成int到底是用0还是用1补位的猜想与检验最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。">
 <meta name="twitter:image" content="https://i.imgur.com/kSg4tuc.png">
   
     <link rel="alternative" href="/atom.xml" title="九陶院团队" type="application/atom+xml">
@@ -176,7 +176,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="关于char强制转换成int到底是用0还是用1补位的猜想与检验"><a href="#关于char强制转换成int到底是用0还是用1补位的猜想与检验" class="headerlink" title="关于char强制转换成int到底是用0还是用1补位的猜想与检验"></a>关于char强制转换成int到底是用0还是用1补位的猜想与检验</h1><pre><code>最近学C语言发现char强制转换时值会完全不同，而且变化很大，于是决定写代码测试一下。
-</code></pre><h3 id="先检验一下char型的-3和3在内存中分别怎么表示"><a href="#先检验一下char型的-3和3在内存中分别怎么表示" class="headerlink" title="先检验一下char型的-3和3在内存中分别怎么表示"></a>先检验一下char型的-3和3在内存中分别怎么表示</h3><p>——用到的函数  </p>
+</code></pre><a id="more"></a>
+<h3 id="先检验一下char型的-3和3在内存中分别怎么表示"><a href="#先检验一下char型的-3和3在内存中分别怎么表示" class="headerlink" title="先检验一下char型的-3和3在内存中分别怎么表示"></a>先检验一下char型的-3和3在内存中分别怎么表示</h3><p>——用到的函数  </p>
 <pre><code>void PrintBit(char x)//用于输出char型在内存中的二进制保存值
 {
     int i=0;

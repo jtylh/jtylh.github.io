@@ -1,1 +1,60 @@
-﻿根深蒂固我饿
+﻿<!DOCTYPE html>
+<html>
+ 
+	<body>
+		<p id="demo">点击这个按钮，获得您的位置：</p>
+		<button onclick="getLocation()">试一下</button>
+		<div id="mapholder"></div>
+ 
+		<script>
+			//获取id为demo的标签
+			var x=document.getElementById("demo");
+			//getLocation获取位置的函数，单击是调用
+			function getLocation()
+			  {
+			  	//如果浏览器支持
+			  if (navigator.geolocation)
+			    {
+			    //获取当前位置，分别传入了成功和失败的两个函数
+			    navigator.geolocation.getCurrentPosition(showPosition,showError);
+			    }
+			    //如果不支持，则进行提示
+			  else{x.innerHTML="Geolocation is not supported by this browser.";}
+			  }
+			//获取成功，调用的函数showPosition
+			function showPosition(position)
+			  {
+			  	//获取经度和维度
+			  var latlon=position.coords.latitude+","+position.coords.longitude;
+			   //利用谷歌地图进行显示，当然了也可以通过百度地图
+			  var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+			  +latlon+"&zoom=14&size=400x300&sensor=false";
+			  document.getElementById("mapholder").innerHTML="<img src='"+img_url+"' />";
+			  }
+			//错误调用的函数
+			function showError(error)
+			  {
+			  switch(error.code) 
+			    {
+			    	//错误1
+			    case error.PERMISSION_DENIED:
+			      x.innerHTML="User denied the request for Geolocation."
+			      break;
+			      //地理位置不可用
+			    case error.POSITION_UNAVAILABLE:
+			      x.innerHTML="Location information is unavailable."
+			      break;
+			     //超时
+			    case error.TIMEOUT:
+			      x.innerHTML="The request to get user location timed out."
+			      break;
+			      //位置错误
+			    case error.UNKNOWN_ERROR:
+			      x.innerHTML="An unknown error occurred."
+			      break;
+			    }
+			  }
+		</script>
+	</body>
+ 
+</html>
